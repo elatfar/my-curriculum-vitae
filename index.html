@@ -30,6 +30,23 @@
   .mono{font-family:'IBM Plex Mono', monospace;}
   .display{font-family:'Oswald', sans-serif;}
 
+  .icon-svg{
+    width:18px; height:18px;
+    stroke:currentColor;
+    fill:none;
+    stroke-width:1.6;
+    stroke-linecap:round;
+    stroke-linejoin:round;
+    flex-shrink:0;
+  }
+  .icon-badge{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:20px; height:20px;
+    color:var(--signal-orange);
+  }
+
   /* corner manifest tag */
   .manifest-tag{
     position:fixed;
@@ -171,11 +188,17 @@
     padding-top:1.4rem;
     display:flex;
     flex-wrap:wrap;
-    gap:0.6rem 2.2rem;
+    gap:1rem 2.2rem;
     font-family:'IBM Plex Mono', monospace;
     font-size:0.78rem;
     color:var(--steel-mist);
   }
+  .contact-bar .item{
+    display:flex;
+    align-items:flex-start;
+    gap:0.6rem;
+  }
+  .contact-bar .item .icon-badge{color:var(--sea-teal); margin-top:2px;}
   .contact-bar div span{
     display:block;
     color:var(--sea-teal);
@@ -194,15 +217,19 @@
     margin-bottom:2.6rem;
   }
   .section-head .tag{
+    display:inline-flex;
+    align-items:center;
+    gap:0.4rem;
     font-family:'IBM Plex Mono', monospace;
     font-size:0.7rem;
     letter-spacing:0.14em;
     color:var(--sea-teal);
     border:1px solid var(--sea-teal);
-    padding:3px 8px;
+    padding:3px 10px 3px 7px;
     text-transform:uppercase;
     white-space:nowrap;
   }
+  .section-head .tag .icon-svg{width:14px; height:14px; color:var(--sea-teal);}
   .section-head h2{
     font-family:'Oswald', sans-serif;
     text-transform:uppercase;
@@ -398,6 +425,12 @@
     color:var(--sea-teal);
     width:12rem;
   }
+  .manifest-table td.label .label-inner{
+    display:flex;
+    align-items:center;
+    gap:0.55rem;
+  }
+  .manifest-table td.label .icon-svg{color:var(--signal-orange);}
   .manifest-table td.items{
     font-size:0.95rem;
     color:var(--navy-deep);
@@ -455,15 +488,30 @@
 </head>
 <body>
 
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="icon-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="1.5"/><path d="M3 6.5l9 6.5 9-6.5"/></symbol>
+    <symbol id="icon-phone" viewBox="0 0 24 24"><path d="M5 4h3l1.5 4-2 1.5a12 12 0 0 0 6 6l1.5-2 4 1.5v3c0 1-1 2-2 2C10 20 4 14 4 6c0-1 1-2 1-2z"/></symbol>
+    <symbol id="icon-anchor" viewBox="0 0 24 24"><circle cx="12" cy="5" r="2"/><path d="M12 7v13M6 12H4a8 8 0 0 0 8 8 8 8 0 0 0 8-8h-2M8 12h8"/></symbol>
+    <symbol id="icon-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M15.2 8.8l-2.1 4.3-4.3 2.1 2.1-4.3z"/></symbol>
+    <symbol id="icon-helm" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="8"/><path d="M12 4v3M12 17v3M4 12h3M17 12h3M6.3 6.3l2 2M15.7 15.7l2 2M6.3 17.7l2-2M15.7 8.3l2-2"/></symbol>
+    <symbol id="icon-container" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="11" rx="1"/><path d="M3 11h18M3 14.5h18M12 3v4"/></symbol>
+    <symbol id="icon-lighthouse" viewBox="0 0 24 24"><path d="M9 21h6M8 21l1-13h6l1 13M7 8h10M9 4h6l-1 4H10z"/></symbol>
+    <symbol id="icon-code" viewBox="0 0 24 24"><path d="M8 6l-5 6 5 6M16 6l5 6-5 6"/></symbol>
+    <symbol id="icon-gear" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1"/></symbol>
+    <symbol id="icon-plug" viewBox="0 0 24 24"><path d="M9 2v5M15 2v5M6 7h12v4a6 6 0 0 1-12 0z"/><path d="M12 17v4"/></symbol>
+    <symbol id="icon-clipboard" viewBox="0 0 24 24"><rect x="6" y="4" width="12" height="17" rx="1.5"/><rect x="9" y="2" width="6" height="3" rx="1"/><path d="M9 11h6M9 15h6"/></symbol>
+    <symbol id="icon-document" viewBox="0 0 24 24"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4"/><path d="M9 12h6M9 16h6"/></symbol>
+  </defs>
+</svg>
+
 <div class="manifest-tag">MANIFEST NO. CV-2026-HA</div>
 
 <header class="hero">
   <div class="hero-top">
     <div class="hero-text">
-        
       <span class="eyebrow">Curriculum Vitae · Depok, Indonesia</span>
-      
-      <h1>Hamdan Ainul<br><span>Atmam</span> Al Faruqi</h1>
+      <h1>Hamdan Ainul<br>Atmam Al <span>Faruqi</span></h1>
       <div class="role-strip">
         <span>QA Engineer</span><span>Project Manager</span><span>System Analyst</span>
       </div>
@@ -478,15 +526,24 @@
   <p class="lede">Detail-oriented dalam menjaga kualitas software — dari menyusun skenario pengujian, menelusuri bug, hingga memastikan setiap sistem berlayar sesuai jalurnya sebelum sampai ke pengguna.</p>
 
   <div class="contact-bar">
-    <div><span>Email</span>atmam58@gmail.com</div>
-    <div><span>Telepon</span>0853 3027 5679</div>
-    <div><span>Domisili</span>Jl. H. Suaib, Gg. H. Marbotin No.9B-4, Krukut – Limo – Depok</div>
+    <div class="item">
+      <span class="icon-badge"><svg class="icon-svg"><use href="#icon-mail"/></svg></span>
+      <div><span>Email</span>atmam58@gmail.com</div>
+    </div>
+    <div class="item">
+      <span class="icon-badge"><svg class="icon-svg"><use href="#icon-phone"/></svg></span>
+      <div><span>Telepon</span>0853 3027 5679</div>
+    </div>
+    <div class="item">
+      <span class="icon-badge"><svg class="icon-svg"><use href="#icon-anchor"/></svg></span>
+      <div><span>Domisili</span>Jl. H. Suaib, Gg. H. Marbotin No.9B-4, Krukut – Limo – Depok</div>
+    </div>
   </div>
 </header>
 
 <section class="summary reveal">
   <div class="section-head">
-    <span class="tag">01</span>
+    <span class="tag"><svg class="icon-svg"><use href="#icon-compass"/></svg>01</span>
     <h2>Ringkasan</h2>
   </div>
   <blockquote>
@@ -496,7 +553,7 @@
 
 <section class="experience reveal">
   <div class="section-head">
-    <span class="tag">02</span>
+    <span class="tag"><svg class="icon-svg"><use href="#icon-helm"/></svg>02</span>
     <h2>Pengalaman Kerja</h2>
   </div>
 
@@ -545,7 +602,7 @@
 
 <section class="projects reveal">
   <div class="section-head">
-    <span class="tag">03</span>
+    <span class="tag"><svg class="icon-svg"><use href="#icon-container"/></svg>03</span>
     <h2>Proyek</h2>
   </div>
 
@@ -596,7 +653,7 @@
 
 <section class="education reveal">
   <div class="section-head">
-    <span class="tag">04</span>
+    <span class="tag"><svg class="icon-svg"><use href="#icon-lighthouse"/></svg>04</span>
     <h2>Pendidikan</h2>
   </div>
   <div class="ledger">
@@ -613,35 +670,35 @@
 
 <section class="skills reveal">
   <div class="section-head">
-    <span class="tag">05</span>
+    <span class="tag"><svg class="icon-svg"><use href="#icon-gear"/></svg>05</span>
     <h2>Keahlian</h2>
   </div>
   <table class="manifest-table">
     <tr>
-      <td class="label">Programming</td>
+      <td class="label"><span class="label-inner"><svg class="icon-svg"><use href="#icon-code"/></svg>Programming</span></td>
       <td class="items"><span class="chip">Python</span><span class="chip">JavaScript</span></td>
     </tr>
     <tr>
-      <td class="label">Automation</td>
+      <td class="label"><span class="label-inner"><svg class="icon-svg"><use href="#icon-gear"/></svg>Automation</span></td>
       <td class="items"><span class="chip">Katalon</span><span class="chip">CypressJS</span></td>
     </tr>
     <tr>
-      <td class="label">API Testing</td>
+      <td class="label"><span class="label-inner"><svg class="icon-svg"><use href="#icon-plug"/></svg>API Testing</span></td>
       <td class="items"><span class="chip">Postman</span><span class="chip">Swagger</span></td>
     </tr>
     <tr>
-      <td class="label">Project Management</td>
+      <td class="label"><span class="label-inner"><svg class="icon-svg"><use href="#icon-clipboard"/></svg>Project Management</span></td>
       <td class="items"><span class="chip">Jira</span><span class="chip">Confluence</span><span class="chip">Trello</span><span class="chip">Gitlab CI/CD</span></td>
     </tr>
     <tr>
-      <td class="label">Documentation</td>
+      <td class="label"><span class="label-inner"><svg class="icon-svg"><use href="#icon-document"/></svg>Documentation</span></td>
       <td class="items"><span class="chip">UAT</span><span class="chip">Test Scenario</span></td>
     </tr>
   </table>
 </section>
 
 <footer>
-  <div class="stamp">QA Passed · End of Manifest</div>
+  <div class="stamp"><svg class="icon-svg" style="width:14px;height:14px;vertical-align:-2px;margin-right:4px;"><use href="#icon-anchor"/></svg>QA Passed · End of Manifest</div>
   <div>Hamdan Ainul Atmam Al Faruqi · <a href="mailto:atmam58@gmail.com">atmam58@gmail.com</a> · 0853 3027 5679</div>
 </footer>
 
