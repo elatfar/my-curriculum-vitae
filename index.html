@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hamdan Ainul Atmam Al Faruqi — QA Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy-deep:#0A1A2A;
+    --navy-panel:#122B40;
+    --steel-mist:#E9EDF0;
+    --signal-orange:#E8582A;
+    --sea-teal:#4C8C86;
+    --paper:#F3EFE6;
+    --ink:#0A1A2A;
+    --line:rgba(233,237,240,0.18);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  .mono{font-family:'IBM Plex Mono', monospace;}
+  .display{font-family:'Oswald', sans-serif;}
+
+  /* corner manifest tag */
+  .manifest-tag{
+    position:fixed;
+    top:14px; right:14px;
+    z-index:50;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.62rem;
+    letter-spacing:0.12em;
+    color:var(--steel-mist);
+    background:var(--navy-deep);
+    border:1px solid var(--sea-teal);
+    padding:6px 10px;
+    text-transform:uppercase;
+    opacity:0.9;
+  }
+  @media (max-width:640px){ .manifest-tag{display:none;} }
+
+  /* ===== HERO ===== */
+  .hero{
+    background:
+      radial-gradient(circle at 85% 12%, rgba(76,140,134,0.25), transparent 45%),
+      var(--navy-deep);
+    color:var(--steel-mist);
+    padding:6rem 8vw 4.5rem;
+    position:relative;
+    overflow:hidden;
+    background-image:
+      radial-gradient(circle at 85% 12%, rgba(76,140,134,0.25), transparent 45%),
+      linear-gradient(var(--line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line) 1px, transparent 1px),
+      var(--navy-deep);
+    background-size: auto, 42px 42px, 42px 42px, auto;
+    background-position: 0 0, 0 0, 0 0, 0 0;
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    text-transform:uppercase;
+    letter-spacing:0.28em;
+    font-size:0.72rem;
+    color:var(--sea-teal);
+    display:inline-block;
+    padding-bottom:0.9rem;
+    opacity:0;
+    animation:rise 0.7s ease forwards;
+  }
+  .hero h1{
+    font-family:'Oswald', sans-serif;
+    font-weight:700;
+    text-transform:uppercase;
+    font-size:clamp(2.6rem, 7vw, 5.2rem);
+    line-height:0.98;
+    letter-spacing:0.01em;
+    max-width:14ch;
+    opacity:0;
+    animation:rise 0.8s ease 0.12s forwards;
+  }
+  .hero h1 span{color:var(--signal-orange);}
+  .hero .role-strip{
+    margin-top:1.6rem;
+    display:flex;
+    flex-wrap:wrap;
+    gap:0.5rem 0;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.85rem;
+    letter-spacing:0.06em;
+    color:var(--steel-mist);
+    opacity:0;
+    animation:rise 0.8s ease 0.24s forwards;
+  }
+  .role-strip span:not(:last-child)::after{
+    content:"·";
+    color:var(--sea-teal);
+    margin:0 0.7rem;
+  }
+  .hero .lede{
+    margin-top:2.2rem;
+    max-width:56ch;
+    font-size:1.02rem;
+    color:rgba(233,237,240,0.85);
+    opacity:0;
+    animation:rise 0.8s ease 0.36s forwards;
+  }
+  @keyframes rise{
+    from{opacity:0; transform:translateY(14px);}
+    to{opacity:1; transform:translateY(0);}
+  }
+
+  /* manifest contact bar */
+  .contact-bar{
+    margin-top:3rem;
+    border-top:1px solid var(--line);
+    padding-top:1.4rem;
+    display:flex;
+    flex-wrap:wrap;
+    gap:0.6rem 2.2rem;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.78rem;
+    color:var(--steel-mist);
+  }
+  .contact-bar div span{
+    display:block;
+    color:var(--sea-teal);
+    text-transform:uppercase;
+    letter-spacing:0.14em;
+    font-size:0.62rem;
+    margin-bottom:0.25rem;
+  }
+
+  /* ===== SECTION SHELL ===== */
+  section{padding:4.5rem 8vw;}
+  .section-head{
+    display:flex;
+    align-items:baseline;
+    gap:0.9rem;
+    margin-bottom:2.6rem;
+  }
+  .section-head .tag{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.7rem;
+    letter-spacing:0.14em;
+    color:var(--sea-teal);
+    border:1px solid var(--sea-teal);
+    padding:3px 8px;
+    text-transform:uppercase;
+    white-space:nowrap;
+  }
+  .section-head h2{
+    font-family:'Oswald', sans-serif;
+    text-transform:uppercase;
+    font-size:clamp(1.5rem, 3vw, 2.1rem);
+    letter-spacing:0.02em;
+    color:var(--navy-deep);
+  }
+
+  /* ===== SUMMARY ===== */
+  .summary{background:var(--paper);}
+  .summary blockquote{
+    font-family:'Oswald', sans-serif;
+    font-weight:500;
+    font-size:clamp(1.15rem, 2.4vw, 1.55rem);
+    line-height:1.5;
+    max-width:52ch;
+    color:var(--navy-deep);
+    border-left:3px solid var(--signal-orange);
+    padding-left:1.4rem;
+  }
+
+  /* ===== EXPERIENCE — VOYAGE ROUTE ===== */
+  .experience{background:var(--navy-deep); color:var(--steel-mist);}
+  .experience .section-head h2{color:var(--steel-mist);}
+  .route{
+    position:relative;
+    padding-left:2.2rem;
+  }
+  .route::before{
+    content:"";
+    position:absolute;
+    left:6px; top:8px; bottom:8px;
+    width:2px;
+    background:repeating-linear-gradient(
+      to bottom, var(--sea-teal) 0 6px, transparent 6px 12px
+    );
+  }
+  .waypoint{
+    position:relative;
+    padding-bottom:3rem;
+  }
+  .waypoint:last-child{padding-bottom:0;}
+  .waypoint::before{
+    content:"";
+    position:absolute;
+    left:-2.2rem;
+    top:6px;
+    width:13px; height:13px;
+    border-radius:50%;
+    background:var(--navy-deep);
+    border:2px solid var(--signal-orange);
+  }
+  .waypoint .coord{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.75rem;
+    letter-spacing:0.08em;
+    color:var(--sea-teal);
+    text-transform:uppercase;
+    margin-bottom:0.4rem;
+  }
+  .waypoint h3{
+    font-family:'Oswald', sans-serif;
+    font-size:1.3rem;
+    text-transform:uppercase;
+    letter-spacing:0.01em;
+  }
+  .waypoint .org{
+    font-size:0.92rem;
+    color:var(--signal-orange);
+    margin-bottom:0.9rem;
+    font-weight:500;
+  }
+  .waypoint ul{
+    list-style:none;
+    display:grid;
+    gap:0.5rem;
+    max-width:70ch;
+  }
+  .waypoint li{
+    position:relative;
+    padding-left:1.1rem;
+    font-size:0.94rem;
+    color:rgba(233,237,240,0.82);
+  }
+  .waypoint li::before{
+    content:"—";
+    position:absolute;
+    left:0;
+    color:var(--sea-teal);
+  }
+
+  /* ===== PROJECTS — CONTAINER YARD ===== */
+  .projects{background:var(--paper);}
+  .yard{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
+    gap:1.4rem;
+  }
+  .container-card{
+    background:var(--navy-panel);
+    color:var(--steel-mist);
+    border-radius:2px;
+    overflow:hidden;
+    transition:transform 0.25s ease, box-shadow 0.25s ease;
+    box-shadow:0 6px 0 rgba(10,26,42,0.08);
+  }
+  .container-card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 14px 24px -10px rgba(10,26,42,0.35);
+  }
+  .container-card .livery{height:8px;}
+  .container-card .plate{
+    padding:1.4rem 1.4rem 0.6rem;
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:0.8rem;
+  }
+  .container-card h3{
+    font-family:'Oswald', sans-serif;
+    font-size:1.12rem;
+    text-transform:uppercase;
+    line-height:1.25;
+  }
+  .container-card .yr{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem;
+    color:var(--sea-teal);
+    border:1px solid var(--sea-teal);
+    padding:2px 7px;
+    white-space:nowrap;
+  }
+  .container-card p{
+    padding:0 1.4rem 1.5rem;
+    font-size:0.88rem;
+    color:rgba(233,237,240,0.78);
+  }
+  .container-card .ridges{
+    height:14px;
+    background:repeating-linear-gradient(
+      90deg, rgba(233,237,240,0.06) 0 4px, transparent 4px 9px
+    );
+  }
+
+  /* ===== EDUCATION — LEDGER ===== */
+  .education{background:var(--navy-deep); color:var(--steel-mist);}
+  .education .section-head h2{color:var(--steel-mist);}
+  .ledger{
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    padding:1.6rem 0;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-between;
+    gap:1rem;
+    align-items:baseline;
+  }
+  .ledger h3{
+    font-family:'Oswald', sans-serif;
+    font-size:1.2rem;
+    text-transform:uppercase;
+  }
+  .ledger .school{color:var(--signal-orange); font-size:0.92rem; margin-top:0.3rem;}
+  .ledger .gpa{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.8rem;
+    color:var(--sea-teal);
+    text-align:right;
+  }
+  .ledger .yrs{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.8rem;
+    color:rgba(233,237,240,0.7);
+  }
+
+  /* ===== SKILLS — CARGO MANIFEST TABLE ===== */
+  .skills{background:var(--paper);}
+  .manifest-table{
+    width:100%;
+    border-collapse:collapse;
+  }
+  .manifest-table tr{border-bottom:1px solid rgba(10,26,42,0.14);}
+  .manifest-table tr:first-child{border-top:1px solid rgba(10,26,42,0.14);}
+  .manifest-table td{
+    padding:1rem 0.6rem;
+    vertical-align:top;
+  }
+  .manifest-table td.label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--sea-teal);
+    width:12rem;
+  }
+  .manifest-table td.items{
+    font-size:0.95rem;
+    color:var(--navy-deep);
+  }
+  .chip{
+    display:inline-block;
+    background:var(--navy-deep);
+    color:var(--steel-mist);
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.78rem;
+    padding:3px 9px;
+    border-radius:2px;
+    margin:2px 6px 2px 0;
+  }
+
+  /* ===== FOOTER ===== */
+  footer{
+    background:var(--navy-deep);
+    color:rgba(233,237,240,0.6);
+    padding:2.8rem 8vw 3.2rem;
+    text-align:center;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.75rem;
+    letter-spacing:0.08em;
+  }
+  footer .stamp{
+    display:inline-block;
+    border:1px solid var(--signal-orange);
+    color:var(--signal-orange);
+    padding:5px 12px;
+    text-transform:uppercase;
+    margin-bottom:1rem;
+  }
+  footer a{color:var(--sea-teal); text-decoration:none;}
+  footer a:hover{text-decoration:underline;}
+
+  /* scroll reveal */
+  .reveal{
+    opacity:0;
+    transform:translateY(18px);
+    transition:opacity 0.6s ease, transform 0.6s ease;
+  }
+  .reveal.in{opacity:1; transform:translateY(0);}
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation:none !important; transition:none !important;}
+    .reveal{opacity:1; transform:none;}
+  }
+
+  @media (max-width:640px){
+    section{padding:3.2rem 6vw;}
+    .hero{padding:4.5rem 6vw 3rem;}
+  }
+</style>
+</head>
+<body>
+
+<div class="manifest-tag">MANIFEST NO. CV-2026-HA</div>
+
+<header class="hero">
+  <span class="eyebrow">Curriculum Vitae · Depok, Indonesia</span>
+  <h1>Hamdan Ainul<br>Atmam Al <span>Faruqi</span></h1>
+  <div class="role-strip">
+    <span>QA Engineer</span><span>Project Manager</span><span>System Analyst</span>
+  </div>
+  <p class="lede">Detail-oriented dalam menjaga kualitas software — dari menyusun skenario pengujian, menelusuri bug, hingga memastikan setiap sistem berlayar sesuai jalurnya sebelum sampai ke pengguna.</p>
+
+  <div class="contact-bar">
+    <div><span>Email</span>atmam58@gmail.com</div>
+    <div><span>Telepon</span>0853 3027 5679</div>
+    <div><span>Domisili</span>Jl. H. Suaib, Gg. H. Marbotin No.9B-4, Krukut – Limo – Depok</div>
+  </div>
+</header>
+
+<section class="summary reveal">
+  <div class="section-head">
+    <span class="tag">01</span>
+    <h2>Ringkasan</h2>
+  </div>
+  <blockquote>
+    QA Engineer yang teliti dengan keahlian dalam software quality assurance, optimasi proses, dan analisis sistem — terbiasa menemukan celah inefisiensi, menjaga alur pengembangan produk tetap mulus, dan mempertahankan standar software yang tinggi. Problem-solver dan pemikir kritis yang berkomitmen pada perbaikan berkelanjutan demi produk yang andal dan berkualitas.
+  </blockquote>
+</section>
+
+<section class="experience reveal">
+  <div class="section-head">
+    <span class="tag">02</span>
+    <h2>Pengalaman Kerja</h2>
+  </div>
+
+  <div class="route">
+
+    <div class="waypoint">
+      <div class="coord">Aug 2023 — Present</div>
+      <h3>Project Manager &amp; QA Lead</h3>
+      <div class="org">PT. Ayo Kreasi Teknologi</div>
+      <ul>
+        <li>Memastikan setiap fitur bekerja sesuai ekspektasi sebelum sampai ke pengguna akhir</li>
+        <li>Menerjemahkan kebutuhan bisnis dan FSD menjadi skenario pengujian yang jelas dan realistis</li>
+        <li>Menyusun dan menjalankan test case berdasarkan alur pengguna nyata, menangani bug, dan beradaptasi dengan perubahan mendadak</li>
+        <li>Berkolaborasi erat dengan developer, PM, dan designer agar sistem selaras dengan logika dan tujuan bisnis</li>
+        <li>Memimpin perencanaan QA sejak awal proyek, memprioritaskan tugas testing, dan membantu menyelesaikan hambatan teknis</li>
+        <li>Melakukan pengujian API menggunakan Postman serta memvalidasi data backend agar akurat dan konsisten</li>
+        <li>Fokus mendeteksi masalah sejak dini dan menjaga kualitas produk sepanjang siklus pengembangan</li>
+      </ul>
+    </div>
+
+    <div class="waypoint">
+      <div class="coord">Feb 2021 — Jun 2023</div>
+      <h3>QA Engineer</h3>
+      <div class="org">Wahyoo</div>
+      <ul>
+        <li>Menyusun dan mengelola test plan untuk menjaga kualitas produk selaras dengan kebutuhan bisnis</li>
+        <li>Menerjemahkan user story menjadi test case terperinci dan mengorganisirnya untuk eksekusi yang efisien</li>
+        <li>Melakukan pengujian di berbagai tahap (unit, integrasi, sistem, UAT) dan mencatat hasilnya di Jira</li>
+        <li>Membuat laporan bug yang jelas untuk mempercepat penyelesaian masalah bersama tim development</li>
+      </ul>
+    </div>
+
+    <div class="waypoint">
+      <div class="coord">Oct 2019 — Aug 2023</div>
+      <h3>Lecturer of Engineering</h3>
+      <div class="org">Nurul Fikri Computer Training Center</div>
+      <ul>
+        <li>Merancang dan menyampaikan materi terstruktur tentang Python, Database, Open Source, serta Struktur Data & Algoritma</li>
+        <li>Menyusun silabus komprehensif dengan tujuan pembelajaran yang jelas dan rencana pelajaran modular</li>
+        <li>Memberikan pelatihan langsung, membimbing peserta melalui latihan coding dan studi kasus nyata</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<section class="projects reveal">
+  <div class="section-head">
+    <span class="tag">03</span>
+    <h2>Proyek</h2>
+  </div>
+
+  <div class="yard">
+
+    <div class="container-card">
+      <div class="livery" style="background:var(--signal-orange);"></div>
+      <div class="plate">
+        <h3>Batam Container Terminal Operating System</h3>
+        <span class="yr">2023</span>
+      </div>
+      <p>Aplikasi untuk menyederhanakan manajemen kontainer pelabuhan — melacak, menjadwalkan, dan mengoptimalkan pergerakan kontainer agar operasional pelabuhan lebih efisien dan tertata.</p>
+      <div class="ridges"></div>
+    </div>
+
+    <div class="container-card">
+      <div class="livery" style="background:var(--sea-teal);"></div>
+      <div class="plate">
+        <h3>Batu Ampar: Auto Gate System</h3>
+        <span class="yr">2023</span>
+      </div>
+      <p>Sistem untuk aktivitas keluar-masuk truk dengan validasi yang terintegrasi langsung dengan BSIMS.</p>
+      <div class="ridges"></div>
+    </div>
+
+    <div class="container-card">
+      <div class="livery" style="background:#8FA6A1;"></div>
+      <div class="plate">
+        <h3>Logistika</h3>
+        <span class="yr">2024</span>
+      </div>
+      <p>Agregator logistik yang menyatukan pemesanan cargo dan kontainer lintas pelabuhan, transportasi darat, dan kargo udara — menyederhanakan penjadwalan, pelacakan, dan koordinasi.</p>
+      <div class="ridges"></div>
+    </div>
+
+    <div class="container-card">
+      <div class="livery" style="background:var(--signal-orange);"></div>
+      <div class="plate">
+        <h3>Marine Operating System</h3>
+        <span class="yr">2024</span>
+      </div>
+      <p>Platform untuk mengelola piloting, towing, penjadwalan kapal, dan pelacakan real-time guna mendukung operasi sandar dan lepas sandar yang efisien.</p>
+      <div class="ridges"></div>
+    </div>
+
+  </div>
+</section>
+
+<section class="education reveal">
+  <div class="section-head">
+    <span class="tag">04</span>
+    <h2>Pendidikan</h2>
+  </div>
+  <div class="ledger">
+    <div>
+      <h3>Bachelor of Information Technology</h3>
+      <div class="school">STT Terpadu Nurul Fikri</div>
+    </div>
+    <div>
+      <div class="yrs">2015 — 2019</div>
+      <div class="gpa">IPK Akhir: 3.75</div>
+    </div>
+  </div>
+</section>
+
+<section class="skills reveal">
+  <div class="section-head">
+    <span class="tag">05</span>
+    <h2>Keahlian</h2>
+  </div>
+  <table class="manifest-table">
+    <tr>
+      <td class="label">Programming</td>
+      <td class="items"><span class="chip">Python</span><span class="chip">JavaScript</span></td>
+    </tr>
+    <tr>
+      <td class="label">Automation</td>
+      <td class="items"><span class="chip">Katalon</span><span class="chip">CypressJS</span></td>
+    </tr>
+    <tr>
+      <td class="label">API Testing</td>
+      <td class="items"><span class="chip">Postman</span><span class="chip">Swagger</span></td>
+    </tr>
+    <tr>
+      <td class="label">Project Management</td>
+      <td class="items"><span class="chip">Jira</span><span class="chip">Confluence</span><span class="chip">Trello</span><span class="chip">Gitlab CI/CD</span></td>
+    </tr>
+    <tr>
+      <td class="label">Documentation</td>
+      <td class="items"><span class="chip">UAT</span><span class="chip">Test Scenario</span></td>
+    </tr>
+  </table>
+</section>
+
+<footer>
+  <div class="stamp">QA Passed · End of Manifest</div>
+  <div>Hamdan Ainul Atmam Al Faruqi · <a href="mailto:atmam58@gmail.com">atmam58@gmail.com</a> · 0853 3027 5679</div>
+</footer>
+
+<script>
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  }, {threshold:0.12});
+  revealEls.forEach(el=>io.observe(el));
+</script>
+
+</body>
+</html>
